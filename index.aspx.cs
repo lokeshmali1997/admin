@@ -37,17 +37,13 @@ public partial class index : System.Web.UI.Page
     public void filldata()
     {
 
-        dt = objdf.FillDT("select top 5 id,username,useremail,usermobilenumber,age,city from UserMaster");
-       
+        dt = objdf.FillDT("select top 5 um.id, username, useremail, usermobilenumber, age, cm.city from UserMaster um, CityMaster cm where um.city = cm.id ");
+
 
         Repeater1.DataSource = dt;
         Repeater1.DataBind();
-
-       
-
-       
-
     }
+
     public void countmemberdata()
     {
 
@@ -56,16 +52,7 @@ public partial class index : System.Web.UI.Page
         lblcountmem.Text = ds.Tables[0].Rows[0]["total"].ToString();
         lblbride.Text = ds.Tables[0].Rows[0]["female_cnt"].ToString();
         lblgroom.Text = ds.Tables[0].Rows[0]["male_cnt"].ToString();
-
-
-
-
-
-
-
     }
-
-
 
     protected void btnlogout(object sender, EventArgs e)
     {

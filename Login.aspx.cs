@@ -42,6 +42,7 @@ public partial class Login : System.Web.UI.Page
         adpt.Fill(ds);
 
         Session.Add("UserName",txtusername.Text);
+        
 
         if (ds.Tables[0].Rows.Count > 0)
         {

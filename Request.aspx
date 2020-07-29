@@ -92,89 +92,11 @@ margin-left:-40px;
                 <a class="navbar-brand" href="index.html">SB Admin</a>
             </div>
             <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
+              <ul class="nav navbar-right top-nav">
+                
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown">
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-footer">
-                            <a href="#">Read All New Messages</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu alert-dropdown">
-                        <li>
-                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">View All</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-user"></i> <asp:Label ID="txtuser" runat="server" Text=""></asp:Label> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -187,25 +109,25 @@ margin-left:-40px;
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i><asp:LinkButton ID="btnlogout1" runat="server" OnClick="btnlogout">Log Out</asp:LinkButton> </a>
                         </li>
                     </ul>
                 </li>
-            </ul>
+            </ul> 
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
           <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
+                     <li class="active">
                         <a href="index.aspx"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="UpdateDetail.aspx"><i class="fas fa-users"></i> Members</a>
+                        <a href="Members.aspx"><i class="fas fa-users"></i> Members</a>
                     </li>
                     <li>
-                        <a href="Printform.aspx"><i class="fa fa-fw fa-table"></i>Request</a>
+                        <a href="Request.aspx"><i class="fa fa-fw fa-table"></i>Request</a>
                     </li>
                     <li>
-                        <a href="CustomerRecipt.aspx"><i class="fa fa-fw fa-edit"></i> Approvals</a>
+                        <a href="Approval.aspx"><i class="fa fa-fw fa-edit"></i> Approvals</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-desktop"></i>Other</a>
@@ -234,6 +156,7 @@ margin-left:-40px;
                 <div class="row" style="margin-bottom:50px;margin-top:10px;">
                     <div class="col-sm-12">
                         <table class="table table-striped">
+
     <thead>
       <tr>
         <th>Request Id</th>
@@ -243,19 +166,26 @@ margin-left:-40px;
         <th>Action</th>
       </tr>
     </thead>
+     
+     <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">  
+         <ItemTemplate>                   
     <tbody>
       <tr>
-        <td>1</td>
-        <td>Lokesh</td>
-        <td>Hitesh</td>
+        <td><asp:Label ID="lblid" runat="server" Text='<%# Bind("id") %>'></asp:Label></td>
+        <asp:HiddenField ID="hiddid" runat="server" Value='<%# Bind("Sender_Id")%>' />
+        <td><asp:Label ID="lblname" runat="server" Text='<%# Bind("username") %>'></asp:Label></td>
+        <td><asp:Label ID="lblemail" runat="server" Text='<%# Bind("User_Name") %>'></asp:Label></td>
+           <asp:HiddenField ID="hidd2" runat="server" Value='<%# Bind("Recevier_Id")%>' />
         <th>
             <asp:Button ID="Button1" runat="server" style="height:25px;padding-top:2px" CssClass="btn btn-danger" Text="Pending" /></th>
       <td>
-          <asp:LinkButton ID="btnapprove" style="" runat="server" ><i class="fas fa-check-circle"></i></asp:LinkButton>
-          <asp:LinkButton ID="btndelete" style="" runat="server" ><i class="fas fa-trash"></i></asp:LinkButton>
+          <asp:LinkButton ID="btnapprove" style="" runat="server" CommandName="Approve"><i class="fas fa-check-circle"></i></asp:LinkButton>
+          <asp:LinkButton ID="btndelete" style="" runat="server" CommandName="Delete"><i class="fas fa-trash"></i></asp:LinkButton>
       </td>
       </tr>
     </tbody>
+             </ItemTemplate>
+         </asp:Repeater>
   </table>
                     </div>
                 </div>

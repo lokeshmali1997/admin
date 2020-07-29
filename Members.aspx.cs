@@ -23,50 +23,44 @@ public partial class Insertform : System.Web.UI.Page
     {
         if (Session["UserName"] == null)
         {
+           
             Response.Redirect("Login.aspx");
         }
-
-
-        filldata();
+        else
+        {
+            txtuser.Text = "Hi" + " " + Session["UserName"];
+            filldata();
+        }
     }
 
 
     public void filldata()
     {
 
-        dt = objdf.FillDT("select  id,username,useremail,usermobilenumber,age,city from UserMaster");
+        ds = objdf.FillDss("select um.id,username,useremail,usermobilenumber,age,cm.city from UserMaster um, CityMaster cm where um.city  = cm.id ");
 
 
-        Repeater1.DataSource = dt;
+        Repeater1.DataSource = ds;
         Repeater1.DataBind();
 
 
     }
 
-
-    //protected void btndelete_Click(object sender, EventArgs e)
-    //{
-        
-    //}
-
     protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
     {
         if(e.CommandName == "Delete")
         {
-            var deleteid = e.Item.FindControl("lblid") as Label;
+            int deleteid = Convert.ToInt32((e.Item.FindControl("lblid") as Label).Text);
 
-            ds = objdf.FillDss("delete from Usermaster where id = 'deleteid' ");
-
-            Repeater1.DataSource = ds;
-            Repeater1.DataBind();
-
+            ds = objdf.FillDss("delete from Usermaster where id = '"+ deleteid +"'");
             filldata();
+
+            
         }
     }
-
-    //public void deletedata(int deleteid)
-    //{
-
-        
-    //}
+    protected void btnlogout(object sender, EventArgs e)
+    {
+        Session.Clear();
+        Response.Redirect("Login.aspx");
+    }
 }

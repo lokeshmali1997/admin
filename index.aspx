@@ -69,88 +69,10 @@
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
+                
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown">
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-footer">
-                            <a href="#">Read All New Messages</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu alert-dropdown">
-                        <li>
-                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">View All</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <asp:Label ID="txtuser" runat="server" style=""></asp:Label> <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-user"></i> <asp:Label ID="txtuser" runat="server" Text=""></asp:Label> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -175,13 +97,13 @@
                         <a href="index.aspx"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="UpdateDetail.aspx"><i class="fas fa-users"></i> Members</a>
+                        <a href="Members.aspx"><i class="fas fa-users"></i> Members</a>
                     </li>
                     <li>
-                        <a href="Printform.aspx"><i class="fa fa-fw fa-table"></i>Request</a>
+                        <a href="Request.aspx"><i class="fa fa-fw fa-table"></i>Request</a>
                     </li>
                     <li>
-                        <a href="CustomerRecipt.aspx"><i class="fa fa-fw fa-edit"></i> Approvals</a>
+                        <a href="Approval.aspx"><i class="fa fa-fw fa-edit"></i> Approvals</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-desktop"></i>Other</a>
@@ -261,12 +183,13 @@
             <ItemTemplate>
     <tbody>
                             <tr>
-        <td><asp:Label ID="lblid" runat="server"></asp:Label></td>
-        <td><asp:Label ID="lblname" runat="server"></asp:Label></td>
-        <td><asp:Label ID="lblemail" runat="server"></asp:Label></td>
-        <td><asp:Label ID="lblage" runat="server"></asp:Label></td>
-        <td><asp:Label ID="lblmobile" runat="server"></asp:Label></td>
-        <td><asp:Label ID="lblcity" runat="server"></asp:Label></td>
+        
+        <td><asp:Label ID="Label1" runat="server" Text='<%# Bind("id") %>'></asp:Label></td>
+        <td><asp:Label ID="Label2" runat="server" Text='<%# Bind("username") %>'></asp:Label></td>
+        <td><asp:Label ID="Label3" runat="server" Text='<%# Bind("useremail") %>'></asp:Label></td>
+        <td><asp:Label ID="Label4" runat="server" Text='<%# Bind("age") %>'></asp:Label></td>
+        <td><asp:Label ID="Label5" runat="server" Text='<%# Bind("usermobilenumber") %>'></asp:Label></td>
+        <td><asp:Label ID="Label6" runat="server" Text='<%# Bind("city") %>'></asp:Label></td>
       </tr>
     </tbody>
                 </ItemTemplate>
