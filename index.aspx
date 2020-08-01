@@ -100,10 +100,10 @@
                         <a href="Members.aspx"><i class="fas fa-users"></i> Members</a>
                     </li>
                     <li>
-                        <a href="Request.aspx"><i class="fa fa-fw fa-table"></i>Request</a>
+                        <a href="Request.aspx"><i class="far fa-paper-plane"></i> Request</a>
                     </li>
                     <li>
-                        <a href="Approval.aspx"><i class="fa fa-fw fa-edit"></i> Approvals</a>
+                        <a href="Approval.aspx"><i class="fas fa-user-check"></i> Approvals</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-desktop"></i>Other</a>
@@ -123,7 +123,7 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Dashboard <small>
-                            Fill Form</small>
+                           </small>
                         </h1>
                        
                     </div>

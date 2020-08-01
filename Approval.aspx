@@ -19,7 +19,7 @@
     <link href="css/sb-admin.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/1cb6858836.js" crossorigin="anonymous"></script>
 
     <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
     <script src="JScript.js" type="text/javascript"></script>
@@ -29,10 +29,8 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script language=javascript type="text/javascript">
-        function page() {
-            window.print();
-        }
+    <script  type="text/javascript">
+      
     </script>
     
 </head>
@@ -78,17 +76,17 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
              <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
+                    <li>
                         <a href="index.aspx"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="Members.aspx"><i class="fas fa-users"></i> Members</a>
                     </li>
                     <li>
-                        <a href="Request.aspx"><i class="fa fa-fw fa-table"></i>Request</a>
+                        <a href="Request.aspx"><i class="far fa-paper-plane"></i> Request</a>
                     </li>
-                    <li>
-                        <a href="Approval.aspx"><i class="fa fa-fw fa-edit"></i> Approvals</a>
+                    <li class="active">
+                        <a href="Approval.aspx"><i class="fas fa-user-check"></i> Approvals</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-desktop"></i>Other</a>
@@ -113,7 +111,7 @@
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-edit"></i> Forms
+                                <i class="fas fa-user-check"></i> Approvals
                             </li>
                         </ol>
                     </div>
@@ -130,7 +128,7 @@
         <th>From</th>
         <th>To</th>
         <th>Status</th>
-        <th>Action</th>
+        <%--<th>Action</th>--%>
       </tr>
     </thead>
      
@@ -144,11 +142,11 @@
         <td><asp:Label ID="lblemail" runat="server" Text='<%# Bind("User_Name") %>'></asp:Label></td>
            <asp:HiddenField ID="hidd2" runat="server" Value='<%# Bind("Recevier_Id")%>' />
         <th>
-            <asp:Button ID="Button1" runat="server" style="height:25px;padding-top:2px" CssClass="btn btn-danger" Text="Approve" /></th>
-      <td>
+            <asp:Button ID="Button1" runat="server" style="height:25px;padding-top:2px" CssClass="btn btn-success" Text="Approve" /></th>
+      <%--<td>
           <asp:LinkButton ID="btnapprove" style="" runat="server" CommandName="Approval"><i class="fas fa-check-circle"></i></asp:LinkButton>
           <asp:LinkButton ID="btndelete" style="" runat="server" CommandName="Delete"><i class="fas fa-trash"></i></asp:LinkButton>
-      </td>
+      </td>--%>
       </tr>
     </tbody>
              </ItemTemplate>

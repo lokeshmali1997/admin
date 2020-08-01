@@ -25,14 +25,8 @@
 
     <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   
 
      <style type="text/css">
      .scroll{ overflow:scroll}
@@ -53,18 +47,9 @@
      </style>
       
       <script type="text/javascript">
-          function printdiv(divName) {
 
-              var printcontents = document.getElementById(divName).innerHTML;
-              var originalcontents = document.body.innerHTML;
+          
 
-              document.body.innerHTML = "<html><head><title></title></head><body>" + printcontents + "</body></html>";
-
-              window.print();
-
-              document.body.innerHTML = originalcontents;
-
-          }
         </script>    
   
     </head>
@@ -109,17 +94,17 @@
             </ul>  <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                     <li class="active">
+                     <li >
                         <a href="index.aspx"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="Members.aspx"><i class="fas fa-users"></i> Members</a>
                     </li>
                     <li>
-                        <a href="Request.aspx"><i class="fa fa-fw fa-table"></i>Request</a>
+                        <a href="Request.aspx"><i class="far fa-paper-plane"></i> Request</a>
                     </li>
                     <li>
-                        <a href="Approval.aspx"><i class="fa fa-fw fa-edit"></i> Approvals</a>
+                        <a href="Approval.aspx"><i class="fas fa-user-check"></i> Approvals</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-desktop"></i>Other</a>
@@ -138,8 +123,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Members
+                            Members   
+                       
                         </h1>
+                           
+           
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
@@ -152,7 +140,7 @@
                 </div>
                 <!-- /.row -->
                
-                  <div class="row" style="margin-bottom:50px;margin-top:10px;">
+                  <div class="row" id="formdetail1"  runat="server" style="margin-bottom:50px;margin-top:10px;">
                   <div class="col-sm-12">
                       <div class="table-responsive">          
   <table class="table">
@@ -180,11 +168,11 @@
         <td><asp:Label ID="lblage" runat="server" Text='<%# Bind("age") %>'></asp:Label></td>
         <td><asp:Label ID="lblmobile" runat="server" Text='<%# Bind("usermobilenumber") %>'></asp:Label></td>
         <td><asp:Label ID="lblcity" runat="server" Text='<%# Bind("city") %>'></asp:Label></td>
-        <td><asp:LinkButton ID="btnedit" runat="server" ><i class="fas fa-edit"></i></asp:LinkButton></td>
+        <td><asp:LinkButton ID="btnedit" runat="server" CommandName="update" ><i class="fas fa-edit"></i></asp:LinkButton></td>
         <td><asp:LinkButton ID="btndelete" runat="server"  CommandName="Delete" ><i class="fas fa-trash"></i></asp:LinkButton>
-             
+           
         </td>
-       <asp:Label ID="lblcity1" runat="server" Visible="false" Text=""></asp:Label>
+    
       </tr>
     </tbody>
                </ItemTemplate>
@@ -192,12 +180,204 @@
       
     
   </table>
+
+                          
                   </div>
               </div>
                
               </div>  
 
+                <div class="row" id="formdetail2" runat="server" visible="false" style="margin-bottom:50px;margin-top:50px;">
+                  <div class="row" style="margin:0px 0px 10px 0px;"><div class="col-sm-12"><h3> Profile Details </h3></div></div>
+                    <asp:Label ID="lblid" runat="server" Visible="false" Text="Label"></asp:Label>
+                    <div class="col-sm-4" >
+                   
+                      <div class="form-group" style="">
+                          <label>Name </label>
+                          <asp:TextBox ID="lblusername"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+                    <div class="col-sm-4" style="">
+                      
+                      <div class="form-group" style="">
+                          <label>Email </label>
+                          <asp:TextBox ID="lblemail"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+                    <div class="col-sm-4">
+                      
+                      <div class="form-group" style="">
+                          <label>Contact </label>
+                          <asp:TextBox ID="lblContact"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+     <div class="row" style="margin:0px 0px 10px 0px;" ><div class="col-sm-12"><h3> Basic Details </h3></div></div>
+                    <div class="col-sm-4">
+                   
+                      <div class="form-group" style="">
+                          <label>Living Status With Family</label>
+                          <asp:TextBox ID="lblliving"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+                    <div class="col-sm-4" style="">
+                      
+                      <div class="form-group" style="">
+                          <label>Marital Status </label>
+                          <asp:TextBox ID="lblmarital"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+                    <div class="col-sm-4">
+                      
+                      <div class="form-group" style="">
+                          <label>Family Status </label>
+                          <asp:TextBox ID="lblfamily"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+       
+                    <div class="col-sm-4">
+                   
+                      <div class="form-group" style="">
+                          <label>Height </label>
+                          <asp:TextBox ID="lblheight"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+                    <div class="col-sm-4" style="">
+                      
+                      <div class="form-group" style="">
+                          <label>Mother Tongue  </label>
+                          <asp:TextBox ID="lblmt"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+                    <div class="col-sm-4">
+                      
+                      <div class="form-group" style="">
+                          <label>Religion </label>
+                          <asp:TextBox ID="lblr"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+                    <div class="col-sm-4">
+                      
+                      <div class="form-group" style="">
+                          <label>Caste </label>
+                          <asp:TextBox ID="lblc"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+<div class="row" style="margin: 0px 10px 0px 0px;"><div class="col-sm-12"><h3>Personal Details</h3></div></div>
+                    <div class="col-sm-4">
+                   
+                      <div class="form-group" style="">
+                          <label>Age </label>
+                          <asp:TextBox ID="lblage"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+                    <div class="col-sm-4" style="">
+                      
+                      <div class="form-group" style="">
+                          <label>Deit  </label>
+                          <asp:TextBox ID="lbldeit"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+                    <div class="col-sm-4">
+                      
+                      <div class="form-group" style="">
+                          <label>Drinking / Smoking </label>
+                          <asp:TextBox ID="lblds"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+                    <div class="col-sm-4">
+                      
+                      <div class="form-group" style="">
+                          <label>Physical Status</label>
+                          <asp:TextBox ID="lblps"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+                    <div class="row" style="margin: 0px 10px 0px 0px;"><div class="col-sm-12"><h3>Education / Career Details</h3></div></div>
+                    <div class="col-sm-4" style="">
+                      
+                      <div class="form-group" style="">
+                          <label>Heighest Education  </label>
+                          <asp:TextBox ID="lblhe"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+                    <div class="col-sm-4">
+                      
+                      <div class="form-group" style="">
+                          <label>Employee In </label>
+                          <asp:TextBox ID="lblei"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+                    <div class="col-sm-4">
+                      
+                      <div class="form-group" style="">
+                          <label>Occupation </label>
+                          <asp:TextBox ID="lblocc"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+                    <div class="col-sm-4">
+                      
+                      <div class="form-group" style="">
+                          <label>Annual Income </label>
+                          <asp:TextBox ID="lblai"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+                    <div class="row" style="margin: 0px 10px 0px 0px;"><div class="col-sm-12"><h3> Location Details </h3></div></div>
+                    <div class="col-sm-4" >
+                   
+                      <div class="form-group" style="">
+                          <label>City </label>
+                          <asp:TextBox ID="lblcity"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+                    <div class="col-sm-4" style="">
+                      
+                      <div class="form-group" style="">
+                          <label>State </label>
+                          <asp:TextBox ID="lblstate"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+                    <div class="col-sm-4">
+                      
+                      <div class="form-group" style="">
+                          <label>Country </label>
+                          <asp:TextBox ID="lblcon"  class="form-control input-sm" runat="server"></asp:TextBox>
+                          
+                      </div>
+                      </div>
+                        <div class="col-sm-9"> </div>
+                        <div class="col-sm-3" style="margin-top:30px;">
+                      
+                      <div class="form-group" style="">
+                          <asp:Button ID="btnupdate" runat="server" class="btn btn-info" style="margin-right:10px;" Text="Update" OnClick="btnupdate_Click" /><asp:Button ID="btncancel" runat="server" CssClass="btn btn-danger" Text="Cancel" OnClick="btncancel_Click" /> 
+                      </div>
+                      </div>
+                       
 
+                    </div>
+                
+
+
+            
+            
             </div>
             <!-- /.container-fluid -->
 
@@ -208,10 +388,10 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="js/jquery.js" type="text/javascript"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
 
 
     </form>

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-         
+         <title> Admin Panel</title>
      <script src="https://kit.fontawesome.com/1cb6858836.js" crossorigin="anonymous"></script>     
     
     <!-- Bootstrap Core CSS -->
@@ -117,17 +117,17 @@ margin-left:-40px;
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
           <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                     <li class="active">
+                     <li>
                         <a href="index.aspx"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="Members.aspx"><i class="fas fa-users"></i> Members</a>
                     </li>
-                    <li>
-                        <a href="Request.aspx"><i class="fa fa-fw fa-table"></i>Request</a>
+                    <li class="active">
+                        <a href="Request.aspx"><i class="far fa-paper-plane"></i> Request</a>
                     </li>
                     <li>
-                        <a href="Approval.aspx"><i class="fa fa-fw fa-edit"></i> Approvals</a>
+                        <a href="Approval.aspx"><i class="fas fa-user-check"></i> Approvals</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-desktop"></i>Other</a>
@@ -142,13 +142,18 @@ margin-left:-40px;
             <div class="container-fluid">
            
                 <!-- Page Heading -->
-                <div class="row">
+               <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Request
                         </h1>
                         <ol class="breadcrumb">
-                            <li class="active"><i class="fa fa-table"></i>Search Customer Detail </li>
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                            </li>
+                            <li class="active">
+                                <i class="far fa-paper-plane"></i> Request
+                            </li>
                         </ol>
                     </div>
                 </div>
